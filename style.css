@@ -1,9 +1,9 @@
 canvas {
-    outline: 2px solid black;
+    outline: 2px solid white;
 }
 
 body {
-    background-color: #454545;
+    background-color: black;
     font-family: Arial, sans-serif;
     zoom:2;
 }
