@@ -1,6 +1,6 @@
 var canvas = document.getElementById("sandbox")
 var ctx = canvas.getContext("2d")
-const zoom = 30
+const zoom = 1
 function clear() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
@@ -41,10 +41,12 @@ class Cell {
         return false
     }
 }
-function frame() {
+function frame() {//q
     for (x = 0; x <= canvas.width / zoom - 1; x++) for (y = 0; y <= canvas.height / zoom - 1; y++) {
         if (world[x][y].state == "sand") {
-           (world[x][y].attempt(x,y,x, y - 1) )
+           if(!world[x][y].attempt(x,y,x, y - 1)) 
+           if(!world[x][y].attempt(x,y,x-1, y - 1))
+           if(!world[x][y].attempt(x,y,x+1, y - 1)) {}
         }
     }
     draw()
@@ -54,6 +56,6 @@ let world = new Array(canvas.width / zoom)
     .fill(0).map(e => new Array(canvas.height / zoom)
         .fill(0).map(w => new Cell("air")))
 world[1][3] = new Cell("sand")
-setInterval(frame, 1000 / 5)
-setInterval(function(){world[1][9] = new Cell("sand")}, 1000)
+setInterval(frame, 1000 / 60)
+setInterval(function(){world[30][30] = new Cell("sand")}, 1000/60)
 // frame()
