@@ -11,8 +11,22 @@
 </head>
 
 <body>
-    <canvas id="sandbox" width="300" height="300"></canvas>
+    <canvas id="sandbox" width="600" height="600"></canvas><br>
     <script src="sim.js"></script>
+    <label for="sandcolor">Sand Color</label>
+    <input type="color" id="sandcolor" value="#ffbf91">
+    <button onclick="document.getElementById('sandcolor').value='#ffbf91'">Reset</button><br>
+    <label for="stdev">Brush Style</label>
+    <input type="range" id="stdev" min="1" max="10" value="1"><br>
+    <label for="stdev">Brush Density</label>
+    <input type="range" id="dense" min="1" max="10" value="1"><br>
+    <label for="stdev">Type</label>
+    <select id="type">
+        <option value="sand">Sand</option>
+        <option value="rock">Rock</option>
+        <option value="air">Air</option>
+    </select><br>
+    <button onclick="world=new Array(canvas.width / zoom).fill(0).map(e => new Array(canvas.height / zoom).fill(0).map(w => new Cell('air')))">Clear</button>
 </body>
 
 </html>
