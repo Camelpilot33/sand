@@ -1,11 +1,33 @@
 canvas {
     outline: 2px solid white;
+    image-rendering: pixelated;
 }
 
 body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
-    zoom:1;
+    zoom: 1;
 }
- 
+
+
+#sandcolor {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 23px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#sandcolor::-webkit-color-swatch {
+    border-radius: 15px;
+    border: none;
+}
+
+#sandcolor::-moz-color-swatch {
+    border-radius: 15px;
+    border: none;
+}
